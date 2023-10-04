@@ -119,6 +119,6 @@ def append_data_to_json_file(new_data, filename):
             json.dump([new_data], f)
 
 
-if __name__ == "__main__":
+def el_cronista_main():
     soup = BeautifulSoup(get_data(), "html.parser")
     process_data(soup)
