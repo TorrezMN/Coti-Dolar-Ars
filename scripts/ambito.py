@@ -7,7 +7,7 @@ import requests
 from bs4 import BeautifulSoup
 import datetime
 import time
-
+import ast
 from random import randint
 from time import sleep
 
@@ -51,7 +51,7 @@ def get_coti_data(d):
     c['name'] = d
     api_base_url = f"https://mercados.ambito.com//dolar/{d}/variacion"
     response = requests.get(api_base_url, headers=headers)
-    c['cotization'] =  response.content.decode("utf-8") 
+    c['cotization'] =  response.json()
     return(c)
 
 
