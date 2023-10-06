@@ -122,5 +122,3 @@ def ambito_main():
     process_data(soup)
 
 
-if __name__ == "__main__":
-    ambito_main()
