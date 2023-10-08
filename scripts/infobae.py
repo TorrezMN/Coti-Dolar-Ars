@@ -13,7 +13,7 @@ from time import sleep
 
 
 
-base_url = "https://www.ambito.com/contenidos/dolar.html"
+base_url = "https://www.infobae.com/economia/divisas/dolar-hoy/"
 
 headers = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36"
@@ -46,13 +46,16 @@ def pprint_data(d):
     print(data)
 
 
-def get_coti_data(d):
-    c = {}
-    c['name'] = d
-    api_base_url = f"https://mercados.ambito.com//dolar/{d}/variacion"
-    response = requests.get(api_base_url, headers=headers)
-    c['cotization'] =  response.json()
-    return(c)
+def process_box(b):
+    box_data = {}
+    box_base = b
+    dolar_name = box_base.find('span',{'class':'box-info-title'}).text
+    dolar_values = box_base.find('div',{'class':'box-info-content-values'})
+    box_data['dolar_name']=dolar_name
+    box_data['values']={}
+    for i in dolar_values:
+        box_data['values'][i.find('span', {'class':'box-info-value'}).text]=i.find('span', {'class':'fc-val'}).text
+    return(box_data)
 
 
 def process_data(d):
@@ -63,21 +66,9 @@ def process_data(d):
     data["debug_info"]["running_time"] = get_current_time()
     data["data"] = {}
     data["data"]["coti"] = []
-
-    data_boxes = d.findAll("div", {"class": "indicador"})
-    ref_names = []
-
-    for i in data_boxes:
-        for j in i["data-indice"].split("/"):
-            if j!='dolar'and j!='':
-                ref_names.append(j)
-
-    for i in ref_names:
-        data["data"]["coti"].append(get_coti_data(i)) 
-        sleep(randint(1,10))
-
-
-
+    base_items = d.findAll('a', {'class':'foreign-item-ctn'})
+    for i in base_items:
+        data["data"]["coti"].append(process_box(i)) 
 
     #  Append data to file.
     append_data_to_json_file(data, get_current_month_and_year())
@@ -87,6 +78,13 @@ def get_data():
     """Gets page content."""
     response = requests.get(base_url, headers=headers)
     return response.content
+
+
+
+
+def infobae_main():
+    soup = BeautifulSoup(get_data(), "html.parser")
+    process_data(soup)
 
 
 def append_data_to_json_file(new_data, filename):
@@ -99,7 +97,7 @@ def append_data_to_json_file(new_data, filename):
 
     try:
         # Open the file in reading and writing mode.
-        with open(f"data/ambito/{filename}.json", "r+") as f:
+        with open(f"data/infobae/{filename}.json", "r+") as f:
             # Load the existing data from the file.
             existing_data = json.load(f)
 
@@ -113,14 +111,8 @@ def append_data_to_json_file(new_data, filename):
             json.dump(existing_data, f)
     except FileNotFoundError:
         # Create the file if it does not exist.
-        with open(f"data/ambito/{filename}.json", "w") as f:
+        with open(f"data/infobae/{filename}.json", "w") as f:
             json.dump([new_data], f)
 
 
-def ambito_main():
-    soup = BeautifulSoup(get_data(), "html.parser")
-    process_data(soup)
 
-
-if __name__ == "__main__":
-    ambito_main()
