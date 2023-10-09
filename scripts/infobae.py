@@ -12,7 +12,6 @@ from random import randint
 from time import sleep
 
 
-
 base_url = "https://www.infobae.com/economia/divisas/dolar-hoy/"
 
 headers = {
@@ -49,13 +48,15 @@ def pprint_data(d):
 def process_box(b):
     box_data = {}
     box_base = b
-    dolar_name = box_base.find('span',{'class':'box-info-title'}).text
-    dolar_values = box_base.find('div',{'class':'box-info-content-values'})
-    box_data['dolar_name']=dolar_name
-    box_data['values']={}
+    dolar_name = box_base.find("span", {"class": "box-info-title"}).text
+    dolar_values = box_base.find("div", {"class": "box-info-content-values"})
+    box_data["dolar_name"] = dolar_name
+    box_data["values"] = {}
     for i in dolar_values:
-        box_data['values'][i.find('span', {'class':'box-info-value'}).text]=i.find('span', {'class':'fc-val'}).text
-    return(box_data)
+        box_data["values"][i.find("span", {"class": "box-info-value"}).text] = i.find(
+            "span", {"class": "fc-val"}
+        ).text
+    return box_data
 
 
 def process_data(d):
@@ -66,9 +67,9 @@ def process_data(d):
     data["debug_info"]["running_time"] = get_current_time()
     data["data"] = {}
     data["data"]["coti"] = []
-    base_items = d.findAll('a', {'class':'foreign-item-ctn'})
+    base_items = d.findAll("a", {"class": "foreign-item-ctn"})
     for i in base_items:
-        data["data"]["coti"].append(process_box(i)) 
+        data["data"]["coti"].append(process_box(i))
 
     #  Append data to file.
     append_data_to_json_file(data, get_current_month_and_year())
@@ -78,13 +79,6 @@ def get_data():
     """Gets page content."""
     response = requests.get(base_url, headers=headers)
     return response.content
-
-
-
-
-def infobae_main():
-    soup = BeautifulSoup(get_data(), "html.parser")
-    process_data(soup)
 
 
 def append_data_to_json_file(new_data, filename):
@@ -115,4 +109,6 @@ def append_data_to_json_file(new_data, filename):
             json.dump([new_data], f)
 
 
-
+def infobae_main():
+    soup = BeautifulSoup(get_data(), "html.parser")
+    process_data(soup)
