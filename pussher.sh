@@ -1,8 +1,14 @@
 #!/bin/bash
 
 # Get the current date and time
-DATE=$(date +"%Y-%m-%d")
-TIME=$(date +"%H:%M")
+# DATE=$(date +"%Y-%m-%d")
+# TIME=$(date +"%H:%M")
+
+
+# Get the current date and time
+DATE=$(date +%Y-%m-%d)
+TIME=$(date +%H:%M:%S)
+
 
 # Set the commit message
 COMMIT_MESSAGE="UPDATED - $DATE - $TIME"
