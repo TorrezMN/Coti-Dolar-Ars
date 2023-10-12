@@ -1,26 +1,11 @@
 #!/bin/bash
 
-# Get the current directory
-DIR=$(pwd)
+#shell script to print numbers 1 to 100
 
-# List the directory contents every 1/2 minutes
-while true; do
-  # for i in {1..40}; do
-    # echo '\n'
-  # done
-  # ls $DIR
-  tree .
-  # echo '========================================================'
-  # echo '========================================================'
-  # tree $DIR
-  # echo '========================================================'
-  # echo '========================================================'
-  # echo '\n'
-  # echo '\n'
-  # echo '\n'
-  # echo '##########################################################'
-  # cat test1.txt
-  # cat test2.txt
-  echo '##########################################################'
-  sleep 10
-done
+i=1
+while [ $i -le 100 ]
+do
+    # echo $i
+    touch file_$i.txt
+    i=$(($i+1))
+  done
