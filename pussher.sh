@@ -2,9 +2,6 @@
 
 cd /home/torrezmn/Documents/Coti-Dolar-Ars/
 
-# Get the current date and time
-# DATE=$(date +"%Y-%m-%d")
-# TIME=$(date +"%H:%M")
 
 
 # Get the current date and time
@@ -22,10 +19,9 @@ git add .
 git commit -m "$COMMIT_MESSAGE"
 
 # Push the changes to the remote repository
-# git push origin master
 git push
 
 
 
-echo "$DATE - $TIME | SE EJECUTO CORRECTAMENTE!" > push_log.txt
+echo "{$DATE} - {$TIME} | SE EJECUTO CORRECTAMENTE!" > push_log.txt
 
