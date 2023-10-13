@@ -13,7 +13,7 @@ TIME=$(date +%H:%M:%S)
 
 
 # Set the commit message
-COMMIT_MESSAGE="UPDATED - $DATE - $TIME"
+COMMIT_MESSAGE="UPDATED - {$DATE} - {$TIME}"
 
 # Stage all changes
 git add .
