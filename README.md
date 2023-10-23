@@ -2,6 +2,7 @@
 
 
 Project that collects the price of the dollar in Argentine Pesos from various sources.
+The data is stored in **json** format.
 
 ## Fuentes
 
