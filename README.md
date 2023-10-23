@@ -7,5 +7,5 @@
 
 1. [Ambito](https://www.ambito.com/contenidos/dolar.html)
 2. [El cronista](https://www.cronista.com/MercadosOnline/dolar.html)
-3. [Infobae](fasdfa)
-4. [La Nacion](fasldfdf)
+3. [Infobae](https://www.infobae.com/economia/divisas/dolar-hoy/)
+4. [La Nacion](https://www.lanacion.com.ar/dolar-hoy/)
