@@ -112,3 +112,7 @@ def append_data_to_json_file(new_data, filename):
 def infobae_main():
     soup = BeautifulSoup(get_data(), "html.parser")
     process_data(soup)
+
+
+if __name__ == "__main__":
+    infobae_main()

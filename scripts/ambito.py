@@ -83,6 +83,7 @@ def process_data(d):
     append_data_to_json_file(data, get_current_month_and_year())
 
 
+
 def get_data():
     """Gets page content."""
     response = requests.get(base_url, headers=headers)
@@ -97,9 +98,10 @@ def append_data_to_json_file(new_data, filename):
     filename: The path to the JSON file.
     """
 
+
     try:
         # Open the file in reading and writing mode.
-        with open(f"data/ambito/{filename}.json", "r+") as f:
+        with open(f"data/ambito/{filename}.json", "r+", encoding='utf-8') as f:
             # Load the existing data from the file.
             existing_data = json.load(f)
 

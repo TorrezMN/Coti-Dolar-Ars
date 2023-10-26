@@ -13,9 +13,20 @@ if __name__ == "__main__":
 
     try:
         el_cronista_main()
-        la_nacion_main()
-        ambito_main()
-        infobae_main()
-
     except Exception as e:
-        print(e)
+        print("El Cronista", e)
+
+    try:
+        la_nacion_main()
+    except Exception as e:
+        print("La Nacion", e)
+
+    try:
+        ambito_main()
+    except Exception as e:
+        print("Ambito", e)
+
+    try:
+        infobae_main()
+    except Exception as e:
+        print("Infobae", e)
