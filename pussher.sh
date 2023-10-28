@@ -23,5 +23,5 @@ git push
 
 
 
-echo "{$DATE} - {$TIME} | SE EJECUTO CORRECTAMENTE!" > push_log.txt
+echo "{$DATE} - {$TIME} | SE EJECUTO CORRECTAMENTE!" >> push_log.txt
 
