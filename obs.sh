@@ -2,7 +2,7 @@
 
 #shell script to print numbers 1 to 100
 
-cd /home/torrezmn/Documents/Coti-Dolar-Ars/
+cd /home/torrezmn/Documentos/Coti-Dolar-Ars/
 
 
 

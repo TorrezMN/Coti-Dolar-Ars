@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/torrezmn/Documents/Coti-Dolar-Ars/
+cd /home/torrezmn/Documentos/Coti-Dolar-Ars
 
 
 
