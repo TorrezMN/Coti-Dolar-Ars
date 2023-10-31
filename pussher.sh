@@ -1,6 +1,7 @@
 #!/bin/bash
 
 
+cd /home/torrezmn/Documentos/Coti-Dolar-Ars
 
 # Get the current date and time
 DATE=$(date +%Y-%m-%d)
@@ -21,5 +22,5 @@ git push
 
 
 
-#echo "{$DATE} - {$TIME} | SE EJECUTO CORRECTAMENTE!" >> push_log.txt
+echo "{$DATE} - {$TIME} | SE EJECUTO CORRECTAMENTE!" >> push_log.txt
 
