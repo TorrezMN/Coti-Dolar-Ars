@@ -1,9 +1,23 @@
 {
-  "title": "Argentine pesos cotizations to dolar.",
+  "title": "Dollar-Argentine peso quotes.", 
+  "description": "Daily quote of the Argentine peso with respect to the North American dollar.",
+  "id_no": 12345,
+
+
+
+
+
   "id": "torrezmn/coti-dolar-ars",
   "licenses": [
     {
       "name": "CC0-1.0"
     }
+  ],
+  "keywords": [
+    "beginner",
+    "pesos",
+    "peso argentino",
+    "dolar",
+    "cotizacion"
   ]
 }
