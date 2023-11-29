@@ -12,7 +12,6 @@ from random import randint
 from time import sleep
 
 
-
 base_url = "https://www.ambito.com/contenidos/dolar.html"
 
 headers = {
@@ -48,11 +47,11 @@ def pprint_data(d):
 
 def get_coti_data(d):
     c = {}
-    c['name'] = d
+    c["name"] = d
     api_base_url = f"https://mercados.ambito.com//dolar/{d}/variacion"
     response = requests.get(api_base_url, headers=headers)
-    c['cotization'] =  response.json()
-    return(c)
+    c["cotization"] = response.json()
+    return c
 
 
 def process_data(d):
@@ -69,19 +68,15 @@ def process_data(d):
 
     for i in data_boxes:
         for j in i["data-indice"].split("/"):
-            if j!='dolar'and j!='':
+            if j != "dolar" and j != "":
                 ref_names.append(j)
 
     for i in ref_names:
-        data["data"]["coti"].append(get_coti_data(i)) 
-        sleep(randint(1,10))
-
-
-
+        data["data"]["coti"].append(get_coti_data(i))
+        sleep(randint(1, 10))
 
     #  Append data to file.
     append_data_to_json_file(data, get_current_month_and_year())
-
 
 
 def get_data():
@@ -98,10 +93,9 @@ def append_data_to_json_file(new_data, filename):
     filename: The path to the JSON file.
     """
 
-
     try:
         # Open the file in reading and writing mode.
-        with open(f"data/ambito/{filename}.json", "r+", encoding='utf-8') as f:
+        with open(f"data/ambito/{filename}.json", "r+", encoding="utf-8") as f:
             # Load the existing data from the file.
             existing_data = json.load(f)
 

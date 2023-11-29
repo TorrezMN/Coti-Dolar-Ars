@@ -126,4 +126,3 @@ def el_cronista_main():
 
 if __name__ == "__main__":
     el_cronista_main()
-
