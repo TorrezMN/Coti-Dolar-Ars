@@ -1,0 +1,33 @@
+{
+  "id": "torrezmn/coti-dolar-ars",
+  "title": "Dollar-Argentine peso quotes",
+  "subtitle": "A comprehensive dataset of historical dollar-Argentine peso exchange rates",
+  "licenses": [
+    {
+      "name": "CC0-1.0"
+    }
+  ],
+  "language": "es",
+  "description": "This dataset provides a comprehensive collection of daily exchange rates between the Argentine peso (ARS) and the United States dollar (USD). The data is meticulously compiled from reputable sources to ensure accuracy and reliability.",
+  "data_sources": [
+    {
+      "name": "Ambito",
+      "url": "https://www.ambito.com/contenidos/dolar.html"
+    },
+    {
+      "name": "El Cronista",
+      "url": "https://www.cronista.com/MercadosOnline/dolar.html"
+    },
+    {
+      "name": "La Nación",
+      "url": "https://www.lanacion.com.ar/dolar-hoy/"
+    },
+    {
+      "name": "Infobae",
+      "url": "https://www.infobae.com/economia/divisas/dolar-hoy/"
+    }
+  ]
+}
+
+
+
